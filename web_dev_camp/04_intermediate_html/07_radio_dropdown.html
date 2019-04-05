@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Form Labels</title>
+</head>
+
+<body>
+
+    <h3>Radio // Dropdown</h3>
+    <p>cats or dogs</p>
+    <form>
+        <!-- use similar "name" to force a single choice -->
+        <label for="dogs">Dogs</label>
+        <input name="pet_choice" id="dogs" type="radio" value="DOG"><br />
+        <label for="cats">Cats</label>
+        <input name="pet_choice" id="cats" type="radio" value="CAT"><br><!-- value = info to store on submit -->
+
+        <!-- Select creates a dropdown choice and Name allows it to post -->
+        <select name="sw_char">
+            <option value="correct">Kenobi</option>
+            <option value="maybe">Vader</option>
+            <option value="no">Fett</option> <!-- value = info to store on submit -->
+        </select><br />
+
+        <input name="user_info" type="text">
+
+        <button>Go!</button> <!-- if a button is the last thing in a form it is the same as input submit -->
+    </form>
+
+</body>
+
+</html>

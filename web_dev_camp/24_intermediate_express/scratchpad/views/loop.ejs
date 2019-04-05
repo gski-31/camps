@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Names
+    </title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+    <h1>
+        Name Page
+    </h1>
+    <p>
+        <% names.forEach(function(e){ %>
+        <li>
+            <%= e %>
+        </li>
+        <% }) %>
+    </p>
+    <form action="add_name" method="POST">
+        <input type="text" name="newName" placeholder="name">
+        <button>Add Name</button>
+    </form>
+</body>
+
+</html>

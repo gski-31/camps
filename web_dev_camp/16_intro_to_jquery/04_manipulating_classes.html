@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Manipulating Classes</title>
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+	 crossorigin="anonymous"></script>
+	<style type="text/css">
+		.correct {
+			color: rgb(23, 207, 23);
+		}
+
+		.wrong {
+			color: rgb(196, 0, 0);
+			background: rgb(248, 121, 231);
+		}
+
+		.done {
+			color: rgb(90, 90, 90);
+			text-decoration: line-through;
+		}
+	</style>
+</head>
+
+<body>
+
+	<h1>Manipulating Classes</h1>
+
+	<input type="text" placeholder="your name">
+
+	<ul>
+		<li>Bill</li>
+		<li>Friggin</li>
+		<li>Murray</li>
+	</ul>
+
+	<img src="https://fillmurray.com/315/315" alt="billy" />
+    <img src="https://fillmurray.com/315/315" alt="billy" />
+	<img src="https://fillmurray.com/315/315" alt="billy" />
+	
+	<script>
+	
+	$('h1').addClass('correct');
+	$('li:first').toggleClass('done');
+	
+	</script>
+
+</body>
+</html>

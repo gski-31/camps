@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Loops
+    </title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+    <h1>
+        Loops
+    </h1>
+    <p>for loops</p>
+    <p>
+        <% for(let i = 0; i < postVar.length ; i++){ %>
+        <li>
+            <%= postVar[i].english %> equals
+            <%= postVar[i].spanish %>
+        </li>
+        <% } %>
+    </p>
+
+    <p>forEach loops</p>
+    <p>
+        <% postVar.forEach(function(e){ %>
+        <li>
+            <%= e.english %> equals
+            <%= e.spanish %>
+        </li>
+        <% }) %>
+    </p>
+
+</body>
+
+</html>

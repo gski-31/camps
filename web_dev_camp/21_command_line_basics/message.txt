@@ -1,0 +1,3 @@
+file here
+
+cd, ls, mkdir, touch, .. , rm, rm -rf, etc...

@@ -1,0 +1,14 @@
+/* BASIC IDs and CLASSes */
+
+body {
+    background: yellow;
+}
+
+#orange {
+    background-color: orange;
+    color: yellow;
+}
+
+.checked {
+    text-decoration: line-through;
+}

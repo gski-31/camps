@@ -1,0 +1,13 @@
+1. Introduction
+
+Local Beach Reviews and Locations
+A site to explore local beaches and hidden spots people may not know of. Some beaches are grat and others not so much, I would like a reference of what is out there. 
+
+2. User Interface Design and Prototype
+Please see attachment on page 2
+
+3. Navigation Structure
+Front page layout, ability to search, post, rate
+
+4. References
+n/a

@@ -1,0 +1,49 @@
+================
+NOTES
+================
+
+• server-lite commans fro pj file are:
+"start": "npm run lite",
+"lite": "lite-server"
+
+• bootstrap requires jquert and pooper.js
+
+• AT OPENING HEAD
+<!-- Required meta tags always come first -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+
+• BEFORE CLOSING BODY
+<!-- jQuery first, then Popper.js, then Bootstrap JS. -->
+<script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
+<script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
+<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+
+
+================
+Ideation Report Template
+================
+
+Local Beach Reviews and Locations
+
+1. Introduction
+A site to explore local beaches and hidden spots people may not know of. Some beaches are grat and others not so much, I would like a reference of what is out there. 
+
+2. Expected List of Features
+• Pictures, locations, information, reviews or comments(if able), recomendations based on location, able to suggest or upload (possibly).
+
+3. Market Survey
+• Yelp - a bit beyond my ability at the moment
+• Trip Advisor, cool but too complex at the moment
+• Glassdoor - not beach or travel realted but good layout and same general Ideation
+• https://www.sandiego.org/explore/things-to-do/beaches-bays.aspx = good page with good data
+• this smore of an article but coul borrow mapping and data https://www.timeout.com/los-angeles/things-to-do/best-beaches-in-la-top-coastal-escapes-to-surf-swim-and-play
+
+
+4. References
+I wpould like to take what I learn here combined with whatever I can find on udemy to add this site to my portfolio.

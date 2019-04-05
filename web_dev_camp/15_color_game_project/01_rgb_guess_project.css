@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css?family=Kodchasan');
+body {
+    background-color: #414141;
+    font-family: 'Kodchasan', sans-serif;
+}
+
+.square {
+    width: 30%;
+    background: purple;
+    padding-bottom: 30%;
+    float: left;
+    margin: 1.66%;
+    border-radius: 10%;
+    transition: background-color 0.8s;
+}
+
+#banner {
+    padding: 15px;
+    background-color: #181818;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+#container {
+    margin: 0px auto;
+    max-width: 600px;
+}
+
+h1 {
+    color: white;
+    text-align: center;
+    line-height: 1.2;
+}
+
+#stripe {
+    background: white;
+    height: 34px;
+    text-align: center;
+    color: black;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.selected {
+    background-color: #acacac;
+}
+
+button {
+    border: none;
+    background: none;
+    height: 100%;
+    color: #181818;
+    font-family: 'Kodchasan', sans-serif;
+    font-size: 16px;
+    transition: all 1.25s;
+    outline: none;
+}
+
+button:hover {
+    color: white;
+    background-color: #181818;
+}
+
+#message {
+    display: inline-block;
+    width: 15%;
+}

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Friends Page
+    </title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+    <h1>Friends Home Page</h1>
+    <p>
+        <%  friends.forEach(function(e){ %>
+        <li>
+            <%= e %>
+        </li>
+        <% }); %>
+
+    </p>
+
+    <form action="/addfriend" method="POST">
+        <input type="text" name="newfriend" placeholder="name">
+        <button>New Friend</button>
+    </form>
+</body>
+
+</html>

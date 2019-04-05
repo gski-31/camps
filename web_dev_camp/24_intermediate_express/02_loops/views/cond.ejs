@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        <%= thingVar %>
+    </title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+    <h1>
+        <%= thingVar %>
+    </h1>
+    <p>Welcome to the conditional page for
+        <%= thingVar %>
+    </p>
+    <% if(thingVar > 2019){ %>
+    <p>Welcome to the future</p>
+    <% }  else { %>
+    <p>You're in the past</p>
+    <% } %>
+
+</body>
+
+</html>

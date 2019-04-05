@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald:400,700');
+body {
+    font-size: 16px;
+    font-family: 'Oswald', sans-serif;
+    width: 65%;
+    max-width: 800px; /* set max width for ultra wide */
+    border: 20px solid gray;
+    margin: auto;
+    padding: 25px;
+}
+
+.block {
+    border-left: 8px solid gray;
+    padding-left: 15px;
+}
+
+hr {
+    height: 10px;
+    border: 0;
+    box-shadow: 0 10px 10px -10px #8c8b8b inset;
+}
+
+.date {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: rgb(30, 180, 230) !important;
+}

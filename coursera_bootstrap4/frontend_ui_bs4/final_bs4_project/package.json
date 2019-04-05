@@ -1,0 +1,24 @@
+{
+  "name": "final_bs4_project",
+  "version": "1.0.0",
+  "description": "bootstrap beach project section 1",
+  "main": "index.html",
+  "scripts": {
+    "start": "npm run lite",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lite": "lite-server"
+  },
+  "author": "Jason Gralinski",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^4.3.1",
+    "font-awesome": "^4.7.0",
+    "install": "^0.12.2",
+    "jquery": "^3.3.1",
+    "npm": "^6.8.0",
+    "popper.js": "^1.14.7"
+  },
+  "devDependencies": {
+    "lite-server": "^2.4.0"
+  }
+}
