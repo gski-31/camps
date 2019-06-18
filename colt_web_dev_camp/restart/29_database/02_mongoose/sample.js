@@ -20,4 +20,13 @@ let emma = new Person({
     job: "Kid"
 });
 
-emma.save();
+emma.save((err, person)=>{
+    if(err){
+        console.log('OOOOOOOOOPS on SAVE');
+    } else {
+        console.log('PERSON ADDED');
+        console.log(person);
+    }
+});
+
+// or.create
