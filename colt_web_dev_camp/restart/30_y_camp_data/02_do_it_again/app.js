@@ -4,19 +4,17 @@ const helmet = require('helmet');
 const request = require('request');
 const mongoose = require('mongoose');
 
-// CONNECT TO MONGO
-mongoose.connect('mongodb://localhost/yelp_camp', { useNewUrlParser: true });
+mongoose.connect('mongodb://localhost/yelp_again');
 
 app.use(helmet());
 app.use(express.urlencoded({extended: true}));
 app.use(express.static('public'));
 app.set('view engine', 'ejs');
 
-// ADD SCHEMA
 let campgroundSchema = new mongoose.Schema({
     name: String,
     image: String
-})
+});
 
 let Campground = mongoose.model('Campground', campgroundSchema);
 
@@ -33,34 +31,33 @@ app.get('/', (req, res, next)=>{
     res.render('landing')
 });
 
-app.get('/campgrounds', (req, res, next) => {
-    //GET ALL CGs FROM DB AND RENDER FILE
-    Campground.find({}, (err, all_campgrounds) => {  // empty object to find ALL
-        if (err) {
+app.get('/campgrounds', (req, res, next)=>{
+    Campground.find({}, (err, all_campgrounds)=>{
+        if(err){
             console.log(err)
         } else {
-            res.render("campgrounds", {campgrounds: all_campgrounds});
+            res.render('campgrounds', {campgrounds: all_campgrounds})
         }
     })
+    // res.render('campgrounds', {campgrounds: campgrounds})
 });
 
 app.get('/campgrounds/new', (req, res, next)=>{
     res.render('new');
 });
 
-app.post('/campgrounds', (req, res, next) => {
+app.post('/campgrounds', (req, res, next)=>{
     let name = req.body.name;
     let image = req.body.image;
     let newCampground = {name: name, image: image};
-    // CREATE A NEW CG IN DB
-    Campground.create(newCampground, (err, newCG) => {
-        if (err) {
+    Campground.create(newCampground, (err, newCampground)=>{
+        if(err){
             console.log(err)
         } else {
             res.redirect('campgrounds');
         }
     })
-
+    // res.redirect('campgrounds', {campgrounds: campgrounds});
 });
 
 app.get('*', (req, res, next)=>{

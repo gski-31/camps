@@ -8,7 +8,7 @@ app.use(express.urlencoded({extended: true}));
 app.use(express.static('public'));
 app.set('view engine', 'ejs');
 
-let camps = [
+let campgrounds = [
     {name: 'salmon creek', image: 'https://loremflickr.com/g/320/240/sushi?random=1'},
     {name: 'tuna lake', image: 'https://loremflickr.com/g/320/240/sushi?random=2'},
     {name: 'yellowtail trail', image: 'https://loremflickr.com/g/320/240/sushi?random=3'},
@@ -22,7 +22,7 @@ app.get('/', (req, res, next)=>{
 });
 
 app.get('/campgrounds', (req, res, next)=>{
-    res.render('campgrounds', {camps: camps})
+    res.render('campgrounds', {campgrounds: campgrounds})
 });
 
 app.get('/campgrounds/new', (req, res, next)=>{
@@ -32,8 +32,8 @@ app.get('/campgrounds/new', (req, res, next)=>{
 app.post('/campgrounds', (req, res, next)=>{
     let name = req.body.name;
     let image = req.body.image;
-    camps.push({name: name, image: image})
-    res.redirect('campgrounds', {camps: camps});
+    campgrounds.push({name: name, image: image})
+    res.redirect('campgrounds', {campgrounds: campgrounds});
 });
 
 app.get('*', (req, res, next)=>{
