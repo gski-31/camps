@@ -21,7 +21,9 @@
                     <img src="<%= campground.image %>" class="card-img-top" alt="<%= campground.name %>">
                     <div class="card-body">
                         <h5 class="card-title"><%= campground.name %></h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <p>
+                            <a href="/campgrounds/<%= campground._id %>" class="btn btn-danger">More Info</a>
+                        </p>
                     </div>
                 </div>
             </div>

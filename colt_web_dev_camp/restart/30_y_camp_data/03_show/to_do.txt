@@ -1,3 +1,0 @@
-redo 01 to help it sync in
-paste camp form 29 and add mongoose
-connect /schema /model

@@ -4,7 +4,7 @@ const helmet = require('helmet');
 const request = require('request');
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/yc_redo');
+mongoose.connect('mongodb://localhost/yc_redo', { useNewUrlParser: true });
 
 app.use(helmet());
 app.use(express.urlencoded({extended: true}));
@@ -38,7 +38,7 @@ app.get('/campgrounds', (req, res, next)=>{
         if(err){
             console.log(err)
         } else {
-            res.render('campgrounds', {campgrounds: all_campgrounds})
+            res.render('index', {campgrounds: all_campgrounds})
         }
     })
     // res.render('campgrounds', {campgrounds: campgrounds})
@@ -60,7 +60,7 @@ app.post('/campgrounds', (req, res, next)=>{
     // res.redirect('campgrounds', {campgrounds: campgrounds});
 });
 
-// NEW // SHOW CG CREATION FORM
+// NEW // CG CREATION FORM
 app.get('/campgrounds/new', (req, res, next) => {
     res.render('new');
 });
@@ -68,8 +68,15 @@ app.get('/campgrounds/new', (req, res, next) => {
 //SHOW // INFO ABOUT SELECTED CG
 app.get('/campgrounds/:id', (req, res, next) => {
     // find cg with proper ID
+    Campground.findById(req.params.id, (err, foundCampground)=>{
+        if(err){
+            console.log(err);
+        } else {
+    res.render('show', {campground: foundCampground});
+        }
+    })
     // render show template with IDed cg
-    res.send('future show page');
+    // res.render('show');
 });
 
 app.get('*', (req, res, next)=>{
