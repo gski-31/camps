@@ -17,5 +17,4 @@ Update      /blogs/:id       PUT         Update a particular blog, then redirect
 Destroy     /blogs/:id       DELETE      Delete a particular blog, then redirect somewhere
 
 
-*** start over using single req.body.blog
-*** use bootsrap as symantec is no longer supported
+*** create a random project to itemize something
