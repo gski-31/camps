@@ -1,17 +1,27 @@
-const   express = require('express'),
-        app = express(),
-        mongoose = require('mongoose'),
-        methodOverride = require('method-override'),
-        expressSanitizer = require('express-sanitizer');
+// Index       /blogs           GET         List all blogs
+// New         /blogs/new       GET         Show new blog form
+// Create      /blogs           POST        Create a new blog, then redirect somewhere
+// Show        /blogs/:id       GET         Show info about one specific blog
+// Edit        /blogs/:id/edit  GET         Show edit form for one blog
+// Update      /blogs/:id       PUT         Update a particular blog, then redirect somewhere
+// Destroy     /blogs/:id       DELETE      Delete a particular blog, then redirect somewhere
 
+// IMPORTS
+const express = require('express');
+const app = express();
+const mongoose = require('mongoose');
+const methodOverride = require('method-override');
+const expressSanitizer = require('express-sanitizer');
+
+// APP CONFIG
+app.use(express.urlencoded({extended: true}));
 app.use(express.static('public'));
-app.use(express.urlencoded, {extended: true});
 app.set('view engine', 'ejs');
 app.use(methodOverride('_method'));
 app.use(expressSanitizer());
 
 // MONGOOSE SETUP
-mongoose.connect('mongodb://localhost/char_proj', {useNewUrlParser: true});
+mongoose.connect('mongodb://localhost/dummy_char', {useNewUrlParser: true});
 
 let characterSchema = new mongoose.Schema({
     name: String,
@@ -22,75 +32,49 @@ let characterSchema = new mongoose.Schema({
 
 let Character = mongoose.model('Character', characterSchema);
 
-// REST ROUTES
+// // CREATE DUMMY DATA
+// Character.create({
+//     name: 'Punisher',
+//     image: 'https://duckduckgo.com/i/6c2bfe2e.jpg',
+//     description: "The Punisher is a fictional character appearing in American comic books published by Marvel Comics. The character was created by writer Gerry Conway and artists John Romita Sr. and Ross Andru, with publisher Stan Lee green-lighting the name. The Punisher made his first appearance in The Amazing Spider-Man #129",
+// });
 
-// INDEX
-app.get('/character', (req, res, next)=>{
-    res.render('index');
-});
+// INDEX ROUTE
+app.get('/characters', (req, res, next)=>{
+    Character.find({}, (err, all_characters)=>{
+        if(err){
+            console.log(err)
+        } else {
+            res.render('index', {characters: all_characters})
+        }
+    })
+})
 
-// INDEX REDIRECT
-app.get('/', (req, res, next) => {
-    res.redirect('/index');
-});
-
-// NEW
-app.get('/character/new', (req, res, next) => {
+// NEW ROUTE
+app.get('/characters/new', (req, res, next)=>{
     res.render('new');
-});
+})
 
-// CREATE
-app.post('/character', (req, res, next) => {
-    res.redirect('/index');
-});
+// CREATE ROUTE
+app.post('/characters', (req, res, next)=>{
+    Character.create(req.body.character, (err, new_charcter)=>{
+        if(err){
+            console.log(err)
+        } else {
+            res.redirect('/characters');
+        }
+    })
+})
 
-// SHOW
-app.get('/character/:id', (req, res, next) => {
-    res.render('show', {stuff: stuff});
-});
-
-// EDIT
-app.get('/character/:id/edit', (req, res, next) => {
-    res.render('edit', {stuff: stuff});
-});
-
-// UPDATE
-app.put('/character/:id', (req, res, next) => {
-    res.redirect('/character/' + req.params.id);  // :id
-});
-
-// DESTROY
-app.delete('/character/:id', (req, res, next) => {
-    res.redirect('/character');
-});
+app.get('/', (req, res, next)=>{
+    res.redirect('/characters');
+})
 
 // 404 & SERVER
 app.get('*', (req, res, next) => {
-    res.send('nope :(');
-});
+    res.send('404 - nope :(');
+})
 
-app.listen('3000', (req, res, next) => {
+app.listen('3000', (req, res, next)=>{
     console.log('running on 3k')
-});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+})
