@@ -34,9 +34,9 @@ let Character = mongoose.model('Character', characterSchema);
 
 // // CREATE DUMMY DATA
 // Character.create({
-//     name: 'Punisher',
-//     image: 'https://duckduckgo.com/i/6c2bfe2e.jpg',
-//     description: "The Punisher is a fictional character appearing in American comic books published by Marvel Comics. The character was created by writer Gerry Conway and artists John Romita Sr. and Ross Andru, with publisher Stan Lee green-lighting the name. The Punisher made his first appearance in The Amazing Spider-Man #129",
+//     name: 'Stitch',
+//     image: 'https://duckduckgo.com/i/c7f51db3.png',
+//     description: "Stitch is a fictional character in Disney's Lilo & Stitch franchise. An illegally-made, genetically-engineered, extraterrestrial lifeform resembling a blue koala, he is one of the franchise's two title characters, alongside his adopter and best friend Lilo Pelekai, and its primary protagonist.",
 // });
 
 // INDEX ROUTE
@@ -57,8 +57,54 @@ app.get('/characters/new', (req, res, next)=>{
 
 // CREATE ROUTE
 app.post('/characters', (req, res, next)=>{
-    Character.create(req.body.character, (err, new_charcter)=>{
+    req.body.character.description = req.sanitize(req.body.character.description);
+    Character.create(req.body.character, (err, new_character)=>{
         if(err){
+            console.log(err)
+        } else {
+            res.redirect('/characters');
+        }
+    })
+})
+
+// SHOW ROUTE
+app.get('/characters/:id', (req, res, next) => {
+    Character.findById(req.params.id, (err, found_character)=>{
+        if(err){
+            console.log(err)
+        } else {
+            res.render('show', {character: found_character})
+        }
+    })
+})
+
+// EDIT ROUTE
+app.get('/characters/:id/edit', (req, res, next) => {
+    Character.findById(req.params.id, (err, found_character)=>{
+        if(err){
+            console.log(err)
+        } else {
+            res.render('edit', {character: found_character})
+        }
+    })
+})
+
+// UPDATE ROUTE
+app.put('/characters/:id/', (req, res, next) => {
+    req.body.character.description = req.sanitize(req.body.character.description);
+    Character.findByIdAndUpdate(req.params.id, req.body.character, (err, found_character) => {
+        if (err) {
+            console.log(err)
+        } else {
+            res.redirect('/characters/' + req.params.id);
+        }
+    })
+})
+
+// DESTROY ROUTE
+app.delete('/characters/:id/', (req, res, next) => {
+    Character.findByIdAndRemove(req.params.id, (err, found_character) => {
+        if (err) {
             console.log(err)
         } else {
             res.redirect('/characters');
