@@ -1,7 +1,5 @@
 const mongoose = require('mongoose');
-
 mongoose.connect('mongodb://localhost/32_1_embed', {useNewUrlParser: true});
-
 
 // POST => title, content
 let postSchema = new mongoose.Schema({
@@ -21,9 +19,7 @@ let userSchema = new mongoose.Schema({
 
 let User = mongoose.model('User', userSchema);
 
-
 // --- CREATE NEW USER AND EMBED POSTS --- >
-
 // let newUser = new User({
 //     email: 'stitch@disney.com',
 //     name: 'Stitch'
@@ -63,12 +59,7 @@ User.findOne({name: 'Stitch'}, (err, user) => {
     }
 });
 
-
-
-
-
 // --- SINGLE CASE / CREATE NEW POSTS --- >
-
 // let newPost = new Post({
 //     title: 'Life',
 //     content: 'lorem lorem lorem lorem lorem'
@@ -81,16 +72,3 @@ User.findOne({name: 'Stitch'}, (err, user) => {
 //         console.log(post);
 //     }
 // });
-
-// --------------------------------------------------->
-
-
-
-
-
-
-
-
-
-
-

@@ -93,7 +93,3 @@ User.findOne({email: 'nope@nada.net'}).populate('posts').exec((err, user)=>{
         console.log(user);
     }
 });
-
-
-
-
