@@ -15,7 +15,7 @@ app.set('view engine', 'ejs');
 app.use(expressSanitizer());
 
 // MONGOOSE
-mongoose.connect('mongodb://localhost/yelpCamp_refactor_1', {useNewUrlParser: true});
+mongoose.connect('mongodb://localhost/yelpCamp_refactor_2', {useNewUrlParser: true});
 
 // ROUTES
 
@@ -96,7 +96,7 @@ app.put('/campgrounds/:id', (req, res, next)=>{
 
 // DESTROY ROUTE     /blogs/:id       DELETE      Delete a particular blog, then redirect somewhere
 app.delete('/campgrounds/:id', (req, res, next)=>{
-    Campground.findByIdAndRemove(req.params.id, (err, found_thing)=>{
+    Campground.findByIdAndRemove(req.params.id, (err, found_campground) => {
         if(err){
             console.log(err)
         } else {
@@ -122,10 +122,10 @@ app.get('/campgrounds/:id/comments/new', (req, res, next) => {
 
 app.post("/campgrounds/:id/comments", (req, res)=> {
     //lookup campground using ID
-    Campground.findById(req.params.id, (err, found_campground)=> {
+    Campground.findById(req.params.id, (err, campground)=> {
         if (err) {
             console.log(err);
-            res.redirect("/campgrounds");
+            // res.redirect("/campgrounds");
         } else {
             //create new comment
             Comment.create(req.body.comment, (err, comment)=> {
@@ -133,8 +133,8 @@ app.post("/campgrounds/:id/comments", (req, res)=> {
                     console.log(err);
                 } else {
                     //connect new comment to campground
-                    found_campground.comment.push(comment);
-                    found_campgrounds.save();
+                    campground.comments.push(comment);
+                    campground.save();
                     //redirect campground show page
                     res.redirect('/campgrounds/' + campground._id);
                 }
@@ -142,13 +142,6 @@ app.post("/campgrounds/:id/comments", (req, res)=> {
         }
     });
 });
-
-
-
-
-
-
-
 
 // 404 & SERVER
 app.get('*', (req, res, next)=>{
