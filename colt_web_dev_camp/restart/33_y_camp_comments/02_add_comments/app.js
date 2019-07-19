@@ -2,11 +2,14 @@
 const   express = require('express'),
         app = express(),
         mongoose = require('mongoose'),
+        faker = require('faker'),
         methodOverride = require('method-override'),
         expressSanitizer = require('express-sanitizer'),
         Campground = require('./models/campground'),
         Comment = require('./models/comment'),
-        User = require('./models/user');
+        User = require('./models/user'),
+        {seedDB} = require('./seeds'),
+        {removeDB} = require('./seeds');
 
 app.use(express.urlencoded({extended: true}));
 app.use(express.static('public'));
@@ -15,28 +18,24 @@ app.set('view engine', 'ejs');
 app.use(expressSanitizer());
 
 // MONGOOSE
-mongoose.connect('mongodb://localhost/yelpCamp_refactor_2', {useNewUrlParser: true});
+mongoose.connect('mongodb://localhost/02_add_comments', {useNewUrlParser: true});
+
+// CREATE DUMMY CAMPS
+// seedDB();
+
+// REMOVE ALL CAMPS
+// removeDB();
 
 // ROUTES
-
-// --------------------------------------------------------
-// Name        Path            HTTP Verb   Purpose
-// --------------------------------------------------------
-// Index       /blogs           GET         List all blogs
-// New         /blogs/new       GET         Show new blog form
-// Create      /blogs           POST        Create a new blog, then redirect somewhere
-// Show        /blogs/:id       GET         Show info about one specific blog
-// Edit        /blogs/:id/edit  GET         Show edit form for one blog
-// Update      /blogs/:id       PUT         Update a particular blog, then redirect somewhere
-// Destroy     /blogs/:id       DELETE      Delete a particular blog, then redirect somewhere
-
 // INDEX ROUTE       /blogs           GET         List all blogs
 app.get('/campgrounds', (req, res, next)=>{
     Campground.find({}, (err, all_campgrounds)=>{
         if(err){
             console.log(err)
         } else {
-            res.render('campgrounds/index', {campgrounds: all_campgrounds})
+            res.render('campgrounds/index', {
+                campgrounds: all_campgrounds
+            })
         }
     })
 })
@@ -63,11 +62,14 @@ app.post('/campgrounds', (req, res, next)=>{
 
 // SHOW ROUTE        /blogs/:id       GET         Show info about one specific blog
 app.get('/campgrounds/:id', (req, res, next)=>{
-    Campground.findById(req.params.id, (err, found_campground)=>{
+    Campground.findById(req.params.id).populate('comments').exec(function(err, found_campground){  // no es6 on exec?
         if(err){
             console.log(err)
         } else {
-            res.render('campgrounds/show', {campground: found_campground})
+            console.log(found_campground);
+            res.render('campgrounds/show', {
+                campground: found_campground
+            })
         }
     })
 })
@@ -78,7 +80,9 @@ app.get('/campgrounds/:id/edit', (req, res, next)=>{
         if(err){
             console.log(err)
         } else {
-            res.render('campgrounds/edit', {campground: found_campground})
+            res.render('campgrounds/edit', {
+                campground: found_campground
+            })
         }
     })
 })
@@ -96,7 +100,7 @@ app.put('/campgrounds/:id', (req, res, next)=>{
 
 // DESTROY ROUTE     /blogs/:id       DELETE      Delete a particular blog, then redirect somewhere
 app.delete('/campgrounds/:id', (req, res, next)=>{
-    Campground.findByIdAndRemove(req.params.id, (err, found_campground) => {
+    Campground.findByIdAndRemove(req.params.id, (err, campground)=>{
         if(err){
             console.log(err)
         } else {
@@ -105,43 +109,47 @@ app.delete('/campgrounds/:id', (req, res, next)=>{
     })
 })
 
+// ================== COMMENTS ========================== >
+
 // ADDING COMMENTS IN NESTED ROUTES
 //  NEW     campgrounds/:id/comments/new    GET
-//  NEW     campgrounds/:id/comments        POST
-
 app.get('/campgrounds/:id/comments/new', (req, res, next) => {
     // find campground by id
-    Campground.findById(req.params.id, (err, found_campground)=>{
+    Campground.findById(req.params.id, (err, campground)=>{
         if(err){
             console.log(err)
         } else {
-            res.render('comments/new', {campground: found_campground});
+            res.render('comments/new', {campground: campground});
         }
     })
 })
 
-app.post("/campgrounds/:id/comments", (req, res)=> {
-    //lookup campground using ID
-    Campground.findById(req.params.id, (err, campground)=> {
-        if (err) {
-            console.log(err);
-            // res.redirect("/campgrounds");
+//  NEW     campgrounds/:id/comments        POST
+app.post('/campgrounds/:id/comments', (req, res, next) => {
+    // look up campground using ID
+    Campground.findById(req.params.id, (err, campground)=>{
+        if(err){
+            console.log(err)
+            res.redirect('/')
         } else {
-            //create new comment
-            Comment.create(req.body.comment, (err, comment)=> {
-                if (err) {
-                    console.log(err);
+            // create new comment
+            Comment.create(req.body.comment, (err, comment)=>{
+                if(err){
+                    console.log(err)
                 } else {
-                    //connect new comment to campground
-                    campground.comments.push(comment);
+                    // connect comment to campground
+                    campground.comments.push(comment)
                     campground.save();
-                    //redirect campground show page
-                    res.redirect('/campgrounds/' + campground._id);
+                    // redirect to show page
+                    res.redirect('/campgrounds/' + campground._id)
                 }
-            });
+            })
         }
-    });
-});
+    })
+
+
+    // redirect to show page
+})
 
 // 404 & SERVER
 app.get('*', (req, res, next)=>{

@@ -26,13 +26,14 @@
                 </form>
             </div>
         </div>
-        <div class="row bg-warning p-2">
-            <% campground.comments.forEach((added)=>{ %>
-                <p><%= added.content %> x</p>
-                <p><small><%= added.author %> x</small></p>
-                <hr>
+        <div class="row bg-warning p-4">
+            <% campground.comments.forEach((comment)=>{ %>
+                <div class="container">
+                    <p><%= comment.text %></p>
+                    <p><small><em>– <%= comment.author %></em></small></p>
+                    <hr>
+                </div>
             <% }) %>
-
         </div>
     </div>
 </div>
