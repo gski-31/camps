@@ -146,9 +146,6 @@ app.post('/campgrounds/:id/comments', (req, res, next) => {
             })
         }
     })
-
-
-    // redirect to show page
 })
 
 // 404 & SERVER
