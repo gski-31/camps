@@ -10,3 +10,7 @@
 3. Export getNotes function
 4. From app.js, load in and call the function printing message to console
 */
+
+const notes = require('./notes');
+
+notes();

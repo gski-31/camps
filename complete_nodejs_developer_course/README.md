@@ -1,7 +1,9 @@
 # The Complete Node.js Developer Course (3rd Edition)
-Learn Node.js by building real-world applications with Node, Express, MongoDB, Mocha, and more!
+Udemy description: Learn Node.js by building real-world applications with Node, Express, MongoDB, Mocha, and more!
 
-### Build, test, and launch 4 simple Node apps
+### My goal: Build, test, and launch 4 simple Node apps
+
+### Udemy: What you'll learn
 * Create Express web servers and APIs
 * Store data with Mongoose and MongoDB
 * Deploy your Node apps to production
