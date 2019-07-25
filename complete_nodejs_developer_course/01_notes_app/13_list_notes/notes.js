@@ -1,4 +1,5 @@
 const fs = require('fs');
+const chalk = require('chalk');
 
 const getNotes = () => {
     return 'note thing'
@@ -16,10 +17,20 @@ const addNote = (title, body) => {
             body: body
         });
         saveNotes(notes);
+        console.log(chalk.green.inverse('note added'))
     } else {
-        console.log('note title exists')
+        console.log(chalk.red.inverse('note title exists'))
     }
+}
 
+const removeNote = (title) => {
+    // load parsed object from file
+    const notes = loadNotes();
+    const newNotes = notes.filter((note)=>{
+        return note.title !== title
+    })
+    saveNotes(newNotes);
+    newNotes.length === notes.length ? console.log(chalk.bgRed('No note found')) : console.log(chalk.bgGreen('note removed'))
 }
 
 // load file, if no file create an empty array
@@ -40,5 +51,6 @@ const saveNotes = (notes) => {
 
 module.exports = {
     getNotes: getNotes,
-    addNote: addNote
+    addNote: addNote,
+    removeNote: removeNote
 };

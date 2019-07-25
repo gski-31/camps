@@ -1,9 +1,14 @@
+
 # The Web Developer Bootcamp
-Udemy description: The only course you need to learn web development - HTML, CSS, JS, Node, and More!
+**_ _**
 
-### My goal: Get better acquainted with node and routing.  Refresh HTML, CSS, and JS
+**_Udemy description:_**_ The only course you need to learn web development - HTML, CSS, JS, Node, and More!_
+**_ _**
 
-### Udemy: What you'll learn
+**_My goal:_**_ Get better acquainted with node and routing.  Refresh HTML, CSS, and JS_
+**_ _**
+
+**_Udemy:_**_ What you'll learn:_
 * Make REAL web applications using cutting-edge technologies
 * Continue to learn and grow as a developer, long after the course ends
 * Create a blog application from scratch using Express, MongoDB, and Semantic UI
@@ -36,3 +41,5 @@ Udemy description: The only course you need to learn web development - HTML, CSS
 * Implement user authentication
 * Create a beautiful animated todo list application
 
+
+ 
