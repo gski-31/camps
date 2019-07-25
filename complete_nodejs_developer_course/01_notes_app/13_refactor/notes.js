@@ -8,9 +8,7 @@ const getNotes = () => {
 const addNote = (title, body) => {
     // load parsed object from file
     const notes = loadNotes();
-    const duplicateNotes = notes.filter((note) => {
-        return note.title === title
-    })
+    const duplicateNotes = notes.filter((note) => note.title === title)
     if (duplicateNotes.length === 0) {
         notes.push({
             title: title,
@@ -26,9 +24,7 @@ const addNote = (title, body) => {
 const removeNote = (title) => {
     // load parsed object from file
     const notes = loadNotes();
-    const newNotes = notes.filter((note)=>{
-        return note.title !== title
-    })
+    const newNotes = notes.filter((note)=> note.title !== title)
     saveNotes(newNotes);
     newNotes.length === notes.length ? console.log(chalk.bgRed('No note found')) : console.log(chalk.bgGreen('note removed'))
 }
