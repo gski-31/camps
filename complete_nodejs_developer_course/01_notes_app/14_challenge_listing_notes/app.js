@@ -1,3 +1,11 @@
+/*
+CHALLENGE: Wire up list command
+1. Create and export listNotes from notes.js //
+    — "Your notes" using chalk
+    — Print note title for each note
+2. Call listNotes from command handler
+3. Test your work!
+*/
 const yargs = require('yargs');
 const chalk = require('chalk');
 
@@ -35,6 +43,14 @@ yargs.command({
     },
     handler: (argv)=>{
         notes.removeNote(argv.title);
+    }
+})
+
+yargs.command({
+    command: 'list',
+    describe: 'list all notes',
+    handler: ()=>{
+        notes.listNotes();
     }
 })
 

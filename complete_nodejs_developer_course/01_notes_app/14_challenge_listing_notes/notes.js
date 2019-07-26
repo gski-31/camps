@@ -1,3 +1,11 @@
+/*
+CHALLENGE: Wire up list command
+1. Create and export listNotes from notes.js //
+    — "Your notes" using chalk
+    — Print note title for each note
+2. Call listNotes from command handler
+3. Test your work!
+*/
 const fs = require('fs');
 const chalk = require('chalk');
 
@@ -26,7 +34,15 @@ const removeNote = (title) => {
     const notes = loadNotes();
     const newNotes = notes.filter((note)=> note.title !== title)
     saveNotes(newNotes);
-    newNotes.length === notes.length ? console.log(chalk.bgRed('No note found')) : console.log(chalk.bgGreen('note removed'))
+    newNotes.length === notes.length ? console.log(chalk.red.inverse('No note found')) : console.log(chalk.bgGreen('note removed'))
+}
+
+const listNotes = () => {
+    const notes = loadNotes();
+    console.log(chalk.red.inverse('Your Notes:'))
+    notes.forEach((note)=>{
+        console.log(note.title);
+    })
 }
 
 // load file, if no file create an empty array
@@ -48,5 +64,6 @@ const saveNotes = (notes) => {
 module.exports = {
     getNotes: getNotes,
     addNote: addNote,
-    removeNote: removeNote
+    removeNote: removeNote,
+    listNotes: listNotes
 };
