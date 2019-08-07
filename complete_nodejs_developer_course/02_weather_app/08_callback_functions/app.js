@@ -5,7 +5,7 @@ setTimeout(() => {
 }, 5000);
 
 const names = ['Jason', 'Regan', 'Copper', 'Emma', 'Knobi', 'Squirt', 'Daisy'];
-const shortNames = names.filter((name)=>{
+const shortNames = names.filter((name) => {
     return name.length <= 4
 })
 
@@ -26,4 +26,15 @@ const add = (x, y, callback) => {
 
 add(1, 4, (sum) => {
     console.log(sum) // Should print: 5
+})
+
+
+const again = (x, y, z) => {
+    setTimeout(() => {
+        z(y + x)
+    }, 2000);
+}
+
+again(5,6, (anything)=>{
+    console.log(anything)
 })
