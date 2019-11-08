@@ -1,3 +1,4 @@
 # Collection of Random Camp Files
-
-**some will be revisted in target areas
+---
+_older, targeted camps_
+_holding onto for future revisit_
