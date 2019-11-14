@@ -1,5 +1,7 @@
 # Free Code Camp Projects
 ---
+Taking FreeCodeCamp in with some Udemy and Wes Bos courses
+---
 ## Responsive Web Design Projects
 - [ ] Build a Tribute Page
 - [ ] Build a Survey Form

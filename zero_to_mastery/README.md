@@ -1,12 +1,12 @@
 # The Complete Web Developer in 2020: Zero to Mastery
 _Udemy Class/Camp_
 ---
-Taking in tandom with FreeCodeCamp is
+Taking in tandom with FreeCodeCamp and some Wes Bos courses
 ---
 - [x] Introduction
 - [x] HTML 5
 - [x] CSS 3
-- [ ] Bootstrap 4, Templates, And Building Your Startup Landing Page
+~~Bootstrap 4, Templates, And Building Your Startup Landing Page~~
 - [ ] CSS Grid + CSS Layout
 - [ ] Career Of A Web Developer
 - [ ] Javascript
