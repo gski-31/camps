@@ -4,8 +4,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../assets/style.css">
-  <title>Re-ordering Grid Items!</title>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="css/styles.css">
+  <title>re-order</title>
+
 </head>
 
 <body>
@@ -21,6 +23,19 @@
     .container {
       display: grid;
       grid-gap: 20px;
+      grid-template-columns: repeat(10, 1fr);
+    }
+    .logo{
+      grid-column: span 2;
+      order: 2;
+    }
+    .nav{
+      grid-column: sapn 8;
+      order: 1;
+    }
+    .content{
+      grid-column: 1 / -1;
+      order: 3;
     }
   </style>
 </body>
