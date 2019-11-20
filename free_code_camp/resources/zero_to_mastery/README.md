@@ -1,7 +1,7 @@
 # The Complete Web Developer in 2020: Zero to Mastery
 _Udemy Class/Camp_
 ---
-Taking in tandom with FreeCodeCamp and some Wes Bos courses
+Using as an extra resource for FreeCodeCamp
 ---
 - [x] Introduction
 - [x] HTML 5

@@ -1,6 +1,6 @@
 # Free Code Camp Projects
 ---
-Taking FreeCodeCamp in with some Udemy and Wes Bos courses
+Taking FreeCodeCamp using Udemy and Wes Bos as ancillary resources
 ---
 - [ ] Responsive Web Design Certification (300 hours)
 - [ ] JavaScript Algorithms and Data Structures Certification (300 hours)
