@@ -2,9 +2,10 @@
 ---
 Taking FreeCodeCamp in with some Udemy and Wes Bos courses
 ---
-## Responsive Web Design Projects
-- [ ] Build a Tribute Page
-- [ ] Build a Survey Form
-- [ ] Build a Product Landing Page
-- [ ] Build a Technical Documentation Page
-- [ ] Build a Personal Portfolio Webpage
+- [ ] Responsive Web Design Certification (300 hours)
+- [ ] JavaScript Algorithms and Data Structures Certification (300 hours)
+- [ ] Front End Libraries Certification (300 hours)
+- [ ] Data Visualization Certification (300 hours)
+- [ ] APIs and Microservices Certification (300 hours)
+- [ ] Information Security and Quality Assurance Certification (300 hours)
+- [ ] Coding Interview Prep (Thousands of hours of challenges)
