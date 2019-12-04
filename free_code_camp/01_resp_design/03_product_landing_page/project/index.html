@@ -10,110 +10,57 @@
 </head>
 
 <body>
-    <header id="header">
-        <nav id="nav-bar">
-            <img id="header-img" src="https://picsum.photos/150/30" />
-            <ul>
-                <li><a href="#" class="nav-link">Link 1</a></li>
-                <li><a href="#" class="nav-link">Link 2</a></li>
-                <li><a href="#" class="nav-link">Link 3</a></li>
-            </ul>
-        </nav>
-
-    </header>
     <div id="container">
-        <div id="video">
-        </div>
-        <div>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Placeat dolorem voluptatem vero officiis
-                earum perspiciatis ex nobis, voluptates incidunt soluta itaque quasi ab, blanditiis quam maiores
-                corporis alias quisquam dolorum.</p>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Placeat dolorem voluptatem vero officiis
-                earum perspiciatis ex nobis, voluptates incidunt soluta itaque quasi ab, blanditiis quam maiores
-                corporis alias quisquam dolorum.</p>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Placeat dolorem voluptatem vero officiis
-                earum perspiciatis ex nobis, voluptates incidunt soluta itaque quasi ab, blanditiis quam maiores
-                corporis alias quisquam dolorum.</p>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Placeat dolorem voluptatem vero officiis
-                earum perspiciatis ex nobis, voluptates incidunt soluta itaque quasi ab, blanditiis quam maiores
-                corporis alias quisquam dolorum.</p>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Placeat dolorem voluptatem vero officiis
-                earum perspiciatis ex nobis, voluptates incidunt soluta itaque quasi ab, blanditiis quam maiores
-                corporis alias quisquam dolorum.</p>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Placeat dolorem voluptatem vero officiis
-                earum perspiciatis ex nobis, voluptates incidunt soluta itaque quasi ab, blanditiis quam maiores
-                corporis alias quisquam dolorum.</p>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Placeat dolorem voluptatem vero officiis
-                earum perspiciatis ex nobis, voluptates incidunt soluta itaque quasi ab, blanditiis quam maiores
-                corporis alias quisquam dolorum.</p>
-
+        <div id="header">
+            <nav id="nav-bar">
+                <img id="header-img" src="https://loremflickr.com/150/20/logo" />
+                <ul>
+                    <li><a href="#mario" class="nav-link">Mario</a></li>
+                    <li><a href="#luigi" class="nav-link">Luigi</a></li>
+                    <li><a href="#wario" class="nav-link">Wario</a></li>
+                    <li><a href="#bowser" class="nav-link">Bowser</a></li>
+                </ul>
+            </nav>
         </div>
 
-        <div id="form">
-            <form action="https://www.freecodecamp.com/email-submit" method="POST">
-                <input id="email" type="email" placeholder="enter your email">
-                <input id="submit" type="submit">Submit</input>
-            </form>
+        <div id="page-content">
+            <div id="video">
+                <video width="100%" height="auto" controls>
+                    <source src="mov_bbb.mp4" type="video/mp4">
+                    <source src="mov_bbb.ogg" type="video/ogg">
+                    Your browser does not support HTML5 video.
+                </video>
+            </div>
+            <div id="char_guide">
+                <div class="char_img"><img id="header-img" src="https://loremflickr.com/200/200/mario" /></div>
+                <div class="char_desc" id="mario">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus assumenda
+                    doloribus aperiam sapiente non, explicabo magnam reiciendis sint. Dolorem, minima quasi quis libero
+                    similique temporibus quia iste exercitationem sunt. Neque.</div>
+                <div class="char_img" id="luigi"><img id="header-img" src="https://loremflickr.com/200/200/luigi" /></div>
+                <div class="char_desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus assumenda
+                    doloribus aperiam sapiente non, explicabo magnam reiciendis sint. Dolorem, minima quasi quis libero
+                    similique temporibus quia iste exercitationem sunt. Neque.</div>
+                <div class="char_img" id="wario"><img id="header-img" src="https://loremflickr.com/200/200/wario" /></div>
+                <div class="char_desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus assumenda
+                    doloribus aperiam sapiente non, explicabo magnam reiciendis sint. Dolorem, minima quasi quis libero
+                    similique temporibus quia iste exercitationem sunt. Neque.</div>
+                <div class="char_img" id="bowser"><img id="header-img" src="https://loremflickr.com/200/200/bowser" /></div>
+                <div class="char_desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus assumenda
+                    doloribus aperiam sapiente non, explicabo magnam reiciendis sint. Dolorem, minima quasi quis libero
+                    similique temporibus quia iste exercitationem sunt. Neque.</div>
+            </div>
+
+            <div id="form">
+                <form action="https://www.freecodecamp.com/email-submit" method="POST">
+                    <input id="email" type="email" placeholder="enter your email">
+                    <input id="submit" type="submit"></input>
+                </form>
+            </div>
         </div>
     </div>
 
 
 
-    <style>
-        @import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
-
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            padding: 0px;
-            margin: 0px;
-            font-family: 'Roboto', sans-serif;
-            background: rgb(201, 201, 201);
-        }
-
-
-        #container {
-            display: flex;
-            flex-direction: column;
-            max-width: 1024px;
-            margin: auto;
-            background: white;
-            box-shadow: 3px 3px 3px rgba(87, 87, 87, 0.637);
-            padding: 20px;
-            margin-top: 70px;
-
-        }
-
-
-
-        #header {
-            position: fixed;
-            top: 0px;
-            left: 0px;
-            width: 100%;
-            height: 50px;
-            background: #3b3b3b;
-        }
-
-        #nav-bar {
-            list-style: none;
-            display: flex;
-            justify-content: space-around;
-        }
-
-        #nav-bar ul {
-            display: flex;
-            align-items: center;
-            list-style: none;
-            text-align: center;
-        }
-
-        #nav-bar ul li{
-            padding: 8px;
-        }
-    </style>
 
 
 </body>
@@ -122,16 +69,21 @@
 
 <!-- 
 
+[X] My product landing page should have a header element with a corresponding id="header".
+[X] I can see an image within the header element with a corresponding id="header-img". A company logo would make a good image here.
+[X] Within the #header element I can see a nav element with a corresponding id="nav-bar".
+[X] I can see at least three clickable elements inside the nav element, each with the class nav-link.
+User Story #5: When I click a .nav-link button in the nav element, I am taken to the corresponding section of the landing page.
+[X] User Story #6: I can watch an embedded product video with id="video".
+[X] My landing page has a form element with a corresponding id="form".
+[X] Within the form, there is an input field with id="email" where I can enter an email address.
+[X] The #email input field should have placeholder text to let the user know what the field is for.
+[X] The #email input field uses HTML5 validation to confirm that the entered text is an email address.
+[X] Within the form, there is a submit input with a corresponding id="submit".
+[X] When I click the #submit element, the email is submitted to a static page (use this mock URL: https://www.freecodecamp.com/email-submit) that confirms the email address was entered and that it posted successfully.
+[X] The navbar should always be at the top of the viewport.
+[X] My product landing page should have at least one media query.
+[X] My product landing page should utilize CSS flexbox at least once.
 
-
-
-
-
-
-User Story #13: The navbar should always be at the top of the viewport.
-
-User Story #14: My product landing page should have at least one media query.
-
-User Story #15: My product landing page should utilize CSS flexbox at least once.
 
 -->
