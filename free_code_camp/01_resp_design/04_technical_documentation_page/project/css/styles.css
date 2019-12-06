@@ -8,11 +8,12 @@ body {
     padding: 0px;
     margin: 0px;
     font-family: 'Roboto', sans-serif;
+    background: black;
 }
 
 #container{
     display: grid;
-    grid-template-columns: 240px auto;
+    grid-template-columns: 200px auto;
     grid-template-rows: auto;
     grid-template-areas:
     ".side_bar #main-doc";
@@ -21,9 +22,14 @@ body {
 }
 
 .side_bar, #main-doc{
-    border: 2px solid black;
+    border: .25em solid rgb(150, 150, 150);
     border-radius: 0.5em;
-    padding: 2em;
+    padding: 1em;
+    background: white;
+}
+
+#navbar{
+    position: fixed;
 }
 
 @media (max-width: 600px){
@@ -35,46 +41,63 @@ body {
     }
 
     .side_bar{
-        position: fixed;
+        position: sticky;
         top: 0;
-        width: 96%;
     }
 
-    #main-doc {
-        margin-top: 19.5em;
+    #side_by{
+        display: flex;
+        flex-wrap: wrap;
     }
 
+    #side_by li{
+        padding: 3px;
+    }
+
+    .nav-link {
+        text-align: center;
+    }
+
+    #navbar{
+        position: sticky;
+    }
 }
 
 nav ul {
     list-style: none;
-    padding-left: 0px;
+    padding-left: 1em;
 }
 
 .nav-link {
-	box-shadow:inset 0px 1px 0px 0px #f29c93;
-	background:linear-gradient(to bottom, #fe1a00 5%, #ce0100 100%);
-	background-color:#fe1a00;
-	border-radius:6px;
-	border:1px solid #d83526;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:14px;
-	font-weight:bold;
-	padding:6px 12px;
-	text-decoration:none;
-    text-shadow:0px 1px 0px #b23e35;
-    margin-bottom: 0.5em;
-}
-.nav-link:hover {
-	background:linear-gradient(to bottom, #ce0100 5%, #fe1a00 100%);
-	background-color:#ce0100;
-}
-.nav-link:active {
-	position:relative;
-	top:1px;
+    display: block;
+    width: 100%;
+    border: none;
+    background-color: black;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: left;
+    text-decoration: none;
+    border-radius: 3px;
+    padding: 6px;
+    margin: 3px 0px;
+  }
+  
+  .nav-link:hover {
+    background-color: #ddd;
+    color: black;
+  }
+        
+  .main-section {
+      border-bottom: 1px solid rgb(150, 150, 150);
+  }
+
+header {
+    font-weight: bold;
+    font-size: 1.5em;
+    padding-top: 1em;
 }
 
-        
+  #navbar header {
+      text-align: center;
+  }
