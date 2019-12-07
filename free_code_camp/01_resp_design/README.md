@@ -4,4 +4,4 @@
 - [x] Build a Survey Form
 - [x] Build a Product Landing Page
 - [x] Build a Technical Documentation Page
-- [ ] Build a Personal Portfolio Webpage
+- [x] Build a Personal Portfolio Webpage

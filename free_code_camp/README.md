@@ -2,7 +2,7 @@
 ---
 Taking FreeCodeCamp using Udemy and Wes Bos as ancillary resources
 ---
-- [ ] Responsive Web Design Certification (300 hours)
+- [x] Responsive Web Design Certification (300 hours)
 - [ ] JavaScript Algorithms and Data Structures Certification (300 hours)
 - [ ] Front End Libraries Certification (300 hours)
 - [ ] Data Visualization Certification (300 hours)
