@@ -4,12 +4,12 @@
 • return a message if they are 65 or older
 */
 
-let age = 5
+const age = 5;
 
-if(age <= 7){
-    console.log('kid')
+if (age <= 7) {
+        console.log('kid');
 }
 
-if(age >= 65){
-    console.log('old')
+if (age >= 65) {
+        console.log('old');
 }

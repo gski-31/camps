@@ -7,11 +7,11 @@ const notes = require('./notes');
 
 notes();
 
-let email = 'jason.w.g+45623@gmail.com';
+const email = 'jason.w.g+45623@gmail.com';
 
-console.log(validator.normalizeEmail(email, {
-    gmail_remove_subaddress: true,
-    gmail_remove_dots: true
-}));
-
-
+console.log(
+        validator.normalizeEmail(email, {
+                gmail_remove_subaddress: true,
+                gmail_remove_dots: true,
+        })
+);

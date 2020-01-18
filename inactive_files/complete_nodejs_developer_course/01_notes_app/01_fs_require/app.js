@@ -8,11 +8,3 @@ fs.writeFileSync('notes.txt', 'file created by Node.js and fs.write'); // file, 
 3. Check your work by opening the file and viewing the appended text */
 
 fs.appendFileSync('notes.txt', '\nhere is another line\nand another');
-
-
-
-
-
-
-
-

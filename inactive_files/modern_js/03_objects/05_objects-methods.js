@@ -1,18 +1,18 @@
-let restaurant = {
-    name: 'chronic',
-    capacity: 88,
-    guests: 0,
-    seatParty: function (partySize) {
-        this.guests += partySize
-    },
-    removeParty: function (partySize) {
-        this.guests -= partySize
-    },
-    checkSpace: function (partySize) {
-        let seatsLeft = this.capacity - this.guests
-        return partySize <= seatsLeft
-    }
-}
+const restaurant = {
+        name: 'chronic',
+        capacity: 88,
+        guests: 0,
+        seatParty(partySize) {
+                this.guests += partySize;
+        },
+        removeParty(partySize) {
+                this.guests -= partySize;
+        },
+        checkSpace(partySize) {
+                const seatsLeft = this.capacity - this.guests;
+                return partySize <= seatsLeft;
+        },
+};
 
 /* CHALLENGE:
 // seat party

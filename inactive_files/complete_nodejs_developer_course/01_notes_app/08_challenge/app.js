@@ -8,47 +8,47 @@
 const yargs = require('yargs');
 
 yargs.command({
-    command: 'add',
-    describe: 'add a note',
-    builder: {
-        title: {
-            describe: 'note title',
-            demandOption: true,
-            type: 'string'
+        command: 'add',
+        describe: 'add a note',
+        builder: {
+                title: {
+                        describe: 'note title',
+                        demandOption: true,
+                        type: 'string',
+                },
+                body: {
+                        describe: 'note body',
+                        demandOption: true,
+                        type: 'string',
+                },
         },
-        body: {
-            describe: 'note body',
-            demandOption: true,
-            type: 'string'
-        }
-    },
-    handler: (argv)=>{
-        console.log(`Title: ${argv.title}\nBody: ${argv.body}`);
-    }
+        handler: argv => {
+                console.log(`Title: ${argv.title}\nBody: ${argv.body}`);
+        },
 });
 
 yargs.command({
-    command: 'remove',
-    describe: 'remove a note',
-    handler: ()=>{
-        console.log('removed a note')
-    }
+        command: 'remove',
+        describe: 'remove a note',
+        handler: () => {
+                console.log('removed a note');
+        },
 });
 
 yargs.command({
-    command: 'list',
-    describe: 'list the notes',
-    handler: () => {
-        console.log('listed the notes')
-    }
+        command: 'list',
+        describe: 'list the notes',
+        handler: () => {
+                console.log('listed the notes');
+        },
 });
 
 yargs.command({
-    command: 'read',
-    describe: 'read the notes',
-    handler: () => {
-        console.log('read the notes')
-    }
+        command: 'read',
+        describe: 'read the notes',
+        handler: () => {
+                console.log('read the notes');
+        },
 });
 
 // console.log(yargs.argv)

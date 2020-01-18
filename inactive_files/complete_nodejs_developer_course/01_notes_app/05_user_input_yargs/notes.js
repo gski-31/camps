@@ -1,5 +1,3 @@
-let getNotes = ()=>{
-    return 'notes of some sort';
-}
+const getNotes = () => 'notes of some sort';
 
 module.exports = getNotes;

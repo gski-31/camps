@@ -31,7 +31,7 @@ fs.writeFileSync('json_playground.json', bookJSON);
 
 const fs = require('fs');
 
-let dataBuffer = fs.readFileSync('json_playground.json'); // read JSON file
-let dataJSON = dataBuffer.toString(); // convert to string
-let data = JSON.parse(dataJSON); // parse to object
+const dataBuffer = fs.readFileSync('json_playground.json'); // read JSON file
+const dataJSON = dataBuffer.toString(); // convert to string
+const data = JSON.parse(dataJSON); // parse to object
 console.log(data.title); // log property from object

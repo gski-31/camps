@@ -153,7 +153,3 @@
 // console.log(notes)
 
 // list.sort((a, b) => (a.color > b.color) ? 1 : -1)
-
-
-
-

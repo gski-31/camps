@@ -6,9 +6,9 @@
 • Print is senior value
 */
 
-let age = 30
-let child = age <= 7
-let senior = age >= 65
+const age = 30;
+const child = age <= 7;
+const senior = age >= 65;
 
 console.log(child);
 console.log(senior);

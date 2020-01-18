@@ -16,27 +16,20 @@ console.log(yargs.argv);
 
 // create add command
 yargs.command({
-    command: 'add',
-    describe: 'add a new note',
-    handler: ()=>{
-        console.log('added a new note');
-    }
-})
+        command: 'add',
+        describe: 'add a new note',
+        handler: () => {
+                console.log('added a new note');
+        },
+});
 
 // create remove command
 yargs.command({
-    command: 'remove',
-    describe: 'remove a note',
-    handler: () => {
-        console.log('removed a note');
-    }
-})
+        command: 'remove',
+        describe: 'remove a note',
+        handler: () => {
+                console.log('removed a note');
+        },
+});
 
 // console.log(yargs.argv);
-
-
-
-
-
-
-

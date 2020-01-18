@@ -25,7 +25,7 @@
 // console.log(todos);
 
 /* CHALLENGE:
-print items in a list.*/
+print items in a list. */
 
 // const todos = ['open vs code', 'find videos', 'code along', 'take test', 'go home']
 
@@ -94,15 +94,13 @@ Sort toDos by completion staus
 */
 
 const toDos = [
-    { task: 'open vs code', completed: true },
-    { task: 'find videos', completed: true },
-    { task: 'code along', completed: false },
-    { task: 'take test', completed: true },
-    { task: 'go home', completed: false }
-]
+        { task: 'open vs code', completed: true },
+        { task: 'find videos', completed: true },
+        { task: 'code along', completed: false },
+        { task: 'take test', completed: true },
+        { task: 'go home', completed: false },
+];
 
-toDos.sort((a,b)=>{
-   return  a.completed > b.completed ? 1 : -1
-})
+toDos.sort((a, b) => (a.completed > b.completed ? 1 : -1));
 
-console.log(toDos)
+console.log(toDos);

@@ -1,8 +1,8 @@
 /* CHALLENGE: concat city */
-let city = 'San Diego'
-let state = 'California'
-let country = 'United States'
+const city = 'San Diego';
+const state = 'California';
+const country = 'United States';
 
-let location = `Location: ${city}, ${state}, ${country}`
+const location = `Location: ${city}, ${state}, ${country}`;
 
-console.log(location)
+console.log(location);

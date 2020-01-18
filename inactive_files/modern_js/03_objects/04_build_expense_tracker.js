@@ -5,28 +5,26 @@
 • reset account
 */
 
-let myAccount = {
-    name: 'jason',
-    income: 0,
-    expense: 0
-}
+const myAccount = {
+        name: 'jason',
+        income: 0,
+        expense: 0,
+};
 
-let addExpense = (account, amount)=>{
-    account.expense += amount;
-}
+const addExpense = (account, amount) => {
+        account.expense += amount;
+};
 
-let addIncome = (account, amount) => {
-    account.income += amount;
-}
+const addIncome = (account, amount) => {
+        account.income += amount;
+};
 
-let getSummary = (account)=>{
-    return `there is a balance of ${account.income} with ${account.expense}in expenses`
-}
+const getSummary = account => `there is a balance of ${account.income} with ${account.expense}in expenses`;
 
-let resetAccount = (account) => {
-    account.expense = 0;
-    account.income = 0;
-}
+const resetAccount = account => {
+        account.expense = 0;
+        account.income = 0;
+};
 
 addExpense(myAccount, 3200);
 addExpense(myAccount, 50);

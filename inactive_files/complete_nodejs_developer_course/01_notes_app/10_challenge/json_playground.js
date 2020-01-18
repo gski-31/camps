@@ -8,14 +8,13 @@ CHALLENGE: Work with JSON and the file system
 
 const fs = require('fs');
 // load data
-let loadedData = fs.readFileSync('json_playground.json').toString();
-//parse data
-let myData = JSON.parse(loadedData);
-//change data
+const loadedData = fs.readFileSync('json_playground.json').toString();
+// parse data
+const myData = JSON.parse(loadedData);
+// change data
 myData.name = 'Jason';
 myData.age = '888';
 // convert to json
-let stringData = JSON.stringify(myData);
-//write to file
+const stringData = JSON.stringify(myData);
+// write to file
 fs.writeFileSync('json_playground.json', stringData);
-

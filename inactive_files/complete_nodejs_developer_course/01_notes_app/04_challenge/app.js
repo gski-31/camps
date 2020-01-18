@@ -8,14 +8,7 @@ Bonus: Use docs to mess around with other styles. Make text bold and inversed.
 
 const chalk = require('chalk');
 
-console.log(chalk.green("Success!"));
-console.log(chalk.bold("Bold!"));
-console.log(chalk.inverse("Inverted!"));
-console.log(chalk.bgRed.underline.bold("Bold underlined red"));
-
-
-
-
-
-
-
+console.log(chalk.green('Success!'));
+console.log(chalk.bold('Bold!'));
+console.log(chalk.inverse('Inverted!'));
+console.log(chalk.bgRed.underline.bold('Bold underlined red'));

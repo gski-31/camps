@@ -1,8 +1,8 @@
 /* CHALLENGE: grade calculator with variables */
 
-let correct = 18
-let questions = 20
+const correct = 18;
+const questions = 20;
 
-let score = 'You got a ' + (correct/questions) * 100 + '%'
+const score = `You got a ${(correct / questions) * 100}%`;
 
-console.log(score)
+console.log(score);
