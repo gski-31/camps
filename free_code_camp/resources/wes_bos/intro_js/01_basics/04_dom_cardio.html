@@ -59,32 +59,54 @@
         myUl.insertAdjacentHTML('beforebegin', moreHtml);
 
         // add a class to the second paragraph called warning
-        // GRAB PARENT ANF MODIFY CHILDREN
+        // GRAB PARENT AND MODIFY CHILDREN
         const theDiv = document.querySelector('.wrapper');
         theDiv.children[1].classList.add('warning');
 
         // remove the first paragraph
         theDiv.children[0].remove();
 
-// create a function called generatePlayerCard that takes in three arguments: name, age, and height
+        // create a function called generatePlayerCard that takes in three arguments: name, age, and height
+        // have that function return html that looks like this:
+        // <div class="playerCard">
+        //   <h2>NAME — AGE</h2>
+        //   <p>They are HEIGHT and AGE years old. In Dog years this person would be AGEINDOGYEARS. That would be a tall dog!</p>
+        // </div>
+        const generatePlayerCard = (name, age, height) => `<div class="playerCard">
+            <h2>${name.toUpperCase()} — ${age}</h2>
+            <p>They are ${height} inches tall and ${age} years old. In Dog years this person would be ${age *
+            7}. That would be a tall dog!</p>
+            <button type="button" class="delete">Delete Me!</button>
+            </div>`;
 
-// have that function return html that looks like this:
-// <div class="playerCard">
-//   <h2>NAME — AGE</h2>
-//   <p>They are HEIGHT and AGE years old. In Dog years this person would be AGEINDOGYEARS. That would be a tall dog!</p>
-// </div>
+        // make a new div with a class of cards
+        const cardDiv = document.createElement('div');
+        cardDiv.classList.add('cards');
 
-// make a new div with a class of cards
+        // Have that function make 4 cards
+        // append those cards to the div
+        let myCards = generatePlayerCard('copper', 15, 12);
+        myCards += generatePlayerCard('daisy', 3, 8);
+        myCards += generatePlayerCard('stitch', 5, 22);
+        myCards += generatePlayerCard('anger', 65, 6);
 
-// Have that function make 4 cards
+        // put the div into the DOM just before the wrapper element
+        document.querySelector('.wrapper').insertAdjacentHTML('beforebegin', myCards);
 
-// append those cards to the div
-// put the div into the DOM just before the wrapper element
-// Bonus, put a delete Button on each card so when you click it, the whole card is removed
+        // Bonus, put a delete Button on each card so when you click it, the whole card is removed
+        // SEE LINE 79
 
-// select all the buttons!
-// make out delete function
-// loop over them and attach a listener
+        // select all the buttons!
+        const delButtons = document.querySelectorAll('.delete');
+
+        // make out delete function
+        const deleteCard = e => {
+            const buttonClick = e.currentTarget;
+            buttonClick.closest('.playerCard').remove();
+        };
+
+        // loop over them and attach a listener
+        delButtons.forEach(e => e.addEventListener('click', deleteCard));
     </script>
 
 </body>
