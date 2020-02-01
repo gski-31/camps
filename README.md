@@ -1,4 +1,4 @@
-# Collection of Camp Files
+# Coding Camp Files
 ---
 _each has own readme file_
 ---
