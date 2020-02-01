@@ -102,7 +102,7 @@
         // make out delete function
         const deleteCard = e => {
             const buttonClick = e.currentTarget;
-            buttonClick.closest('.playerCard').remove();
+            buttonClick.closest('.playerCard').remove(); // parentElement works too
         };
 
         // loop over them and attach a listener
