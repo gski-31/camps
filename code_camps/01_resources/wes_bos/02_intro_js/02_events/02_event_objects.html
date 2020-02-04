@@ -21,13 +21,16 @@
     <button class="mybutton">Click Me 10</button>
 
     <script>
+        // • GET ALL THE BUTTONS
+        // • LOOP OVER THEM WITH EVENT LISTENER AND GIVE A FUNCTION
+        // • CREATE FUNCTION FOR THEM WITH CURRENT TARGET
         const myButtons = document.querySelectorAll('.mybutton');
 
         // function shoutBingo() {
         //     alert('BINGO!');
         // }
 
-        function shoutBingo(e){
+        function shoutBingo(e) {
             const theInfo = e.currentTarget;
             console.log(theInfo);
         }
