@@ -13,7 +13,7 @@ function handleButtonClick() {
         const name = card.querySelector('h2').textContent;
         // create modal content
         modalInner.innerHTML = `
-            <img src="${imgSrc.replace('200', '600')}" alte ="${name}" /> 
+            <img src="${imgSrc.replace('200', '600')}" alt ="${name}" /> 
             <p>${desc}</p>
         `;
         // show the modal

@@ -13,7 +13,7 @@ body {
 }
 
 canvas {
-    border: 18px solid #b30000;
+    border: 18px solid #6e0202;
     border-radius: 15px;
     /* Set the width and height to half the actual size so it doesn't look pixelated */
     width: 800px;
