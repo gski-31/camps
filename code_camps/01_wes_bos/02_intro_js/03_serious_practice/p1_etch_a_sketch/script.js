@@ -1,10 +1,10 @@
 // • SELECT THE ELEMENTS ON THE PAGE
 const canvas = document.querySelector('#etch-a-sketch');
 const ctx = canvas.getContext('2d');
-const shakebutton = document.querySelector('.shake');
+const shakeButton = document.querySelector('.shake');
 const MOVE_AMOUNT = 20;
 
-// destructured variables for w & h
+// de-structured variables for w & h
 const { width } = canvas;
 const { height } = canvas;
 
@@ -79,4 +79,4 @@ function clearCanvas() {
 
 // • LISTEN FOR ARROW KEYS
 window.addEventListener('keydown', handleKey);
-shakebutton.addEventListener('click', clearCanvas);
+shakeButton.addEventListener('click', clearCanvas);

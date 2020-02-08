@@ -8,12 +8,12 @@ function handleTabClick(e) {
         tabPanels.forEach(panel => {
                 panel.hidden = 'true';
         });
-        // mark unselected tablist
+        // mark unselected tab-list
         tabButtons.forEach(e => {
                 // e.ariaSelected = false;
                 e.setAttribute('aria-selected', false); // aria elements must use setAttribute
         });
-        // mark selcted tab
+        // mark selected tab
         event.currentTarget.setAttribute('aria-selected', true);
 
         // show proper panel
