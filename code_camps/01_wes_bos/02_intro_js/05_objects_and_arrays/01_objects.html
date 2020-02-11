@@ -9,7 +9,7 @@
 </head>
 
 <body>
-
+    <script src="https://www.unpkg.com/lodash"></script>
     <script>
         // OBJECTS => The Object class represents one of JavaScript's data types. It is used to store various keyed collections and more complex entities. Objects can be created using the Object() constructor or the object initializer / literal syntax.  // order is irrelevant
 
@@ -64,6 +64,58 @@
         console.log(me.sayHello('hey hey hey'));
 
         // REFERENCE VS VALUE
+        const person1 = {
+            first: 'jason',
+            last: 'gralinski',
+        };
+
+        const person2 = {
+            first: 'jason',
+            last: 'gralinski',
+        };
+
+        console.log(person1 === person2); // false as they are different objects
+
+        const person3 = person1;
+        person3.first = 'Regan';
+
+        console.log(person3.first);
+        console.log(person1.first); // objects and arrays are copied or "pointed" by reference
+
+        // COPY OBJECTS // SHALLOW COPIES // 1 LEVEL DEEP
+        const person4 = { ...person1 }; // spread into new object MODERN WAY
+        const person5 = Object.assign({}, person1); // OLD WAY but might still see
+
+        person4.first = 'Jason';
+        console.log(person1.first);
+        console.log(person4.first);
+
+        // Can use LODASH for DEEP MULTI-LEVEL CLONES
+        // SEE LINE 12 for loading
+        // _. to use commands, can be loaded modually
+        const person6 = _.cloneDeep(person);
+        console.log(person6);
+
+        // You can spread multiple objects into a single object
+        const meatInventory = {
+            bacon: 2,
+            sausage: 3,
+            oyster: 10,
+        };
+
+        const veggieInventory = {
+            lettuce: 5,
+            tomatoes: 3,
+            oyster: 15,
+        };
+
+        const inventory = {
+            ...meatInventory,
+            ...veggieInventory,
+            carrots: 56,
+        };
+
+        console.log(inventory);
     </script>
 </body>
 
