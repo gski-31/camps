@@ -87,7 +87,7 @@
 
         // INSTANCE METHODS
 
-        // Display all bun types with " or " - use join()
+        // Display all bun types with " or " - use join() // to string w/ seperator
         console.log(`we have ${buns.join(' or ')} buns`);
 
         // We have a string "hot dogs,hamburgers,sausages,corn" - use split() to turn it into a string
@@ -158,11 +158,11 @@
         console.log('better ratings', betterRatings);
 
         // check if there is at least 5 of one type of meat with some()
-        const fiveMeats = Object.values(meats).some(mv => mv >= 5); // returns true till its not
+        const fiveMeats = Object.values(meats).some(mv => mv >= 5); // returns true if 1 is ture
         console.log(fiveMeats);
 
         // make sure we have at least 3 of every meat with every()
-        const threeMeats = Object.values(meats).every(mv => mv >= 3); // returns true till its not
+        const threeMeats = Object.values(meats).every(mv => mv >= 3); // returns true if all are true
         console.log(threeMeats);
 
         // sort the toppings alphabetically with sort()
