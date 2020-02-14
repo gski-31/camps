@@ -73,6 +73,7 @@
         const meVal = [];
 
         const meatEntries = Object.entries(meats).forEach(([meat, qty]) => {
+            // destructured, can be entry parlayed into values and keys instead
             meArr.push(`${meat}: ${qty}`);
         });
 
@@ -141,16 +142,44 @@
 
         // CALLBACK METHODS
 
-// find the first rating that talks about a burger with find()
-// find all ratings that are above 2 with filter()
-// find all ratings that talk about a burger with filter()
-// Remove the one star rating however you like!
+        // find the first rating that talks about a burger with find()
+        console.log(feedback.find(e => e.comment.includes('burger')));
 
-// check if there is at least 5 of one type of meat with some()
-// make sure we have at least 3 of every meat with every()
-// sort the toppings alphabetically with sort()
-// sort the order totals from most expensive to least with .sort()
-// Sort the prices with sort()
+        // find all ratings that are above 2 with filter()
+        const twoStar = feedback.filter(e => e.rating >= 2);
+        console.log(twoStar);
+
+        // find all ratings that talk about a burger with filter()
+        const burgerRatings = feedback.filter(e => e.comment.toLowerCase().includes('burger'));
+        console.log('burger mentions', burgerRatings);
+
+        // Remove the one star rating however you like!
+        const betterRatings = feedback.filter(e => e.rating != 1);
+        console.log('better ratings', betterRatings);
+
+        // check if there is at least 5 of one type of meat with some()
+        const fiveMeats = Object.values(meats).some(mv => mv >= 5); // returns true till its not
+        console.log(fiveMeats);
+
+        // make sure we have at least 3 of every meat with every()
+        const threeMeats = Object.values(meats).every(mv => mv >= 3); // returns true till its not
+        console.log(threeMeats);
+
+        // sort the toppings alphabetically with sort()
+        const sortedToppings = [...toppings.sort()];
+        console.log(sortedToppings);
+
+        // sort the order totals from most expensive to least with .sort()
+        /* numbers.sort(function(a, b) {
+        return a - b;
+        }); */
+        console.log(orderTotals.sort((a, b) => a - b));
+
+        // Sort the prices with sort()
+        const pricesSorted = Object.values(prices).sort(function (a, b) {
+            return prices[a] - prices[b];
+        });
+        console.log(pricesSorted);
     </script>
 </body>
 
