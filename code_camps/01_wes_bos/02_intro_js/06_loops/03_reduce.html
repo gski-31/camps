@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>filter() and find()</title>
+    <title>reduce()</title>
 
 </head>
 
@@ -135,38 +135,29 @@
             { type: 'pants', price: 123 },
         ];
 
-        const today = Date.now();
+        // RECUCE
+        /* The reduce() method executes a reducer function (that you provide) on each element of the array, resulting in a single output value. */
 
-        const cleanPeople = people.map(person => {
-            console.log(person);
-            // get their birthday
-            const birthday = new Date(person.birthday).getTime();
-            // console.log(birthday);
-            // figure out how old they are
-            const age = Math.floor((today - birthday) / 3.154e10);
-            // console.log(age);
-            // return their full name and bday in an object
-            return {
-                age, // destructured
-                name: `${person.names.first} ${person.names.last}`,
-            };
-        });
+        function tally(a, b) {
+            return a + b;
+        }
 
-        // LOOPING METHODS
+        const orderSum = orderTotals.reduce(tally, 0); // can also add a 2nd argument as a starting point
+        console.log(orderSum);
 
-        // filter --------------------------------------------------------
-        /* The filter() method creates a new array with ALL elements that pass the test implemented by the provided function. */
+        // count instances of something
+        function inventoryReduce(totals, item) {
+            // + by 1
+            totals[item.type] = totals[item.type] + 1 || 1; // conditional if exists add, if not equals 1 or can be ternary
+            // return total to feed loop
+            return totals;
+        }
 
-        /* The main difference between forEach and filter is that forEach just loops over the array and executes the callback but filter executes the callback and check its return value. If the value is true element remains in the resulting array but if the return value is false the element will be removed for the resulting array. */
+        const inventoryCounts = inventory.reduce(inventoryReduce, {});
+        console.log(inventoryCounts);
 
-        const over40 = cleanPeople.filter(e => e.age > 40);
-        console.log(over40);
-
-        // find --------------------------------------------------------
-        /* The find() method returns the value of the FIRST element in the provided array that satisfies the provided testing function. */
-
-        const student = students.find(e => e.id === 'f396'); // example but should go in function
-        console.log(student);
+        const inventoryPrice = inventory.reduce((acc, item) => acc + item.price, 0);
+        console.log(inventoryPrice);
     </script>
 </body>
 
