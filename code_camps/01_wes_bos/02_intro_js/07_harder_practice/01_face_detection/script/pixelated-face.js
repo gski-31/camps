@@ -6,13 +6,13 @@ const ctx = canvas.getContext('2d');
 const faceCanvas = document.querySelector('canvas.face');
 const faceCtx = faceCanvas.getContext('2d');
 
-// default sizes
+// -------- default sizes --------
 const options = {
         SIZE: 13,
         SCALE: 1.3,
 };
 
-// slider sizes
+// -------- slider sizes --------
 const optionsInputs = document.querySelectorAll('.controls input[type="range"]');
 
 function handleOption(e) {
@@ -22,13 +22,16 @@ function handleOption(e) {
 
 optionsInputs.forEach(input => input.addEventListener('input', handleOption));
 
-// make face detector
+// -------- make face detector --------
 const faceDetector = new window.FaceDetector();
 // console.log(video, canvas, faceCanvas, faceDetector);
 
-// populate users video
+// -------- populate users video --------
 // ASYNC and AWAIT
-// grab user feed
+/* The ASYNC function declaration defines an asynchronous function — a function that returns an AsyncFunction object. Asynchronous functions operate in a separate order than the rest of the code via the event loop, returning an implicit Promise as its result. But the syntax and structure of code using async functions looks like standard synchronous functions. You can also define async functions with an async function expression. */
+/* The AWAIT operator is used to wait for a Promise. It can only be used inside an async function. */
+
+// -------- grab user feed --------
 async function populateVideo() {
         const stream = await navigator.mediaDevices.getUserMedia({
                 video: { width: 1280, height: 720 },
@@ -44,7 +47,7 @@ async function populateVideo() {
         faceCanvas.height = video.videoHeight;
 }
 
-// detect face
+// -------- detect face --------
 async function detect() {
         const faces = await faceDetector.detect(video); // either image video or canvas
         // console.log(faces.length);
@@ -54,6 +57,7 @@ async function detect() {
         requestAnimationFrame(detect); // recursive detection
 }
 
+// -------- blur face --------
 function censor({ boundingBox: face }) {
         faceCtx.imageSmoothingEnabled = false;
         faceCtx.clearRect(0, 0, faceCanvas.width, faceCanvas.height);
@@ -87,6 +91,8 @@ function censor({ boundingBox: face }) {
                 height
         );
 }
+
+// -------- add new face --------
 function drawFace(face) {
         const { width, height, top, left } = face.boundingBox;
         ctx.clearRect(0, 0, canvas.width, canvas.height); // clear the boxes on movement
