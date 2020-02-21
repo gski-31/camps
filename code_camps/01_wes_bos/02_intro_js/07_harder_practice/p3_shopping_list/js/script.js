@@ -5,7 +5,7 @@ const shoppingForm = document.querySelector('.shopping');
 const list = document.querySelector('.list');
 
 // array to hold the state of our app
-const items = [];
+let items = [];
 
 // create submit event
 function submitHandler(e) {
@@ -27,7 +27,7 @@ function submitHandler(e) {
         e.target.reset();
         // call display all the items function
         // displayItems();
-        // fire off a custom event that will ley all know that the items have been updated!
+        // fire off a custom event that will let all know that the items have been updated!
         list.dispatchEvent(new CustomEvent('itemsUpdated'));
 }
 
@@ -42,4 +42,51 @@ function displayItems() {
         list.innerHTML = html;
 }
 
+// STORE TO LOCAL STORAGE
+function mirrorToLocalStorage() {
+        console.info('Saving items to local storage');
+        localStorage.setItem('items', JSON.stringify(items));
+}
+
+// RESTORE FROM LOCAL STORAGE
+function restoreFromLocalStorage() {
+        console.info('Restoring from Local Storage');
+        // grab the items from storage
+        const lsItems = JSON.parse(localStorage.getItem('items'));
+        if (lsItems.length) {
+                items.push(...lsItems);
+                list.dispatchEvent(new CustomEvent('itemsUpdated'));
+        }
+}
+
+//  DELETE ITEM
+function deleteItem(id) {
+        items = items.filter(item => item.id !== id);
+        list.dispatchEvent(new CustomEvent('itemsUpdated'));
+}
+
+// COMPLETE ITEM
+function markAsComplete(id) {
+        const itemRef = items.find(item => item.id === id);
+        itemRef.complete = !itemRef.complete;
+        list.dispatchEvent(new CustomEvent('itemsUpdated'));
+}
+
 shoppingForm.addEventListener('submit', submitHandler); // submit is better than click, enter, etc.. for forms
+// CUSTOM EVENT callback
+list.addEventListener('itemsUpdated', displayItems);
+list.addEventListener('itemsUpdated', mirrorToLocalStorage);
+
+// EVENT DELEGATION
+// Listen for the click on list <ul>  then delegate the click over to the button if was clicked
+list.addEventListener('click', function(e) {
+        const id = parseInt(e.target.value);
+        if (e.target.matches('button')) {
+                deleteItem(id);
+        }
+        if (e.target.matches('input[type="checkbox"]')) {
+                markAsComplete(id);
+        }
+});
+
+restoreFromLocalStorage();
