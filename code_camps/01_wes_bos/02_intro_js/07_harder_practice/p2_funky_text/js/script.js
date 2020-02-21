@@ -1,4 +1,4 @@
-// grab text area // try to keep var names similar to html elements
+// grab text area // also: try to keep var names similar to html elements
 const textarea = document.querySelector('[name="text"]');
 
 // grab results
