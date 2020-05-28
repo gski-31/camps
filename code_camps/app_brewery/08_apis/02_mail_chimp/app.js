@@ -2,6 +2,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const https = require('https'); // request is deprecated
 
+require('dotenv').config(); // hide apikeys
+
 const app = express();
 
 const PORT = process.env.PORT || 3000;
@@ -35,11 +37,11 @@ app.post('/', (req, res) => {
         // parse the data for mailchimp
         const jsonData = JSON.stringify(data);
 
-        const url = 'https://us18.api.mailchimp.com/3.0/lists/9b70248c76'; // mailchimp list url
+        const url = `https://us18.api.mailchimp.com/3.0/lists/${process.env.LIST_ID}`; // mailchimp list url
 
         const options = {
                 method: 'POST',
-                auth: 'jason:db33c6c7ac3d8bb37d1305fd582e1141-us18', // mailchimp set options
+                auth: `${process.env.API_KEY}`, // mailchimp set options
         };
 
         // setup the request the data
@@ -62,11 +64,3 @@ app.post('/', (req, res) => {
 app.listen(PORT, () => {
         console.log('listening on 3000');
 });
-
-/*
-API KEY
-db33c6c7ac3d8bb37d1305fd582e1141-us18 // us18 goes into URL variable above
-
-LIST ID
-9b70248c76
-*/
