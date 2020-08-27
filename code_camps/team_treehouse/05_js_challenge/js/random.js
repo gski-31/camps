@@ -20,3 +20,11 @@ const newNumber = twoNumbers(+lower, +upper);
 
 const main = document.querySelector('main');
 main.innerHTML = `your new number is ${newNumber}`;
+
+
+if (approvedBirthdays.indexOf(todaysBirthday) = -1) { 
+    document.write(genericBirthdayMessage)
+}
+else {
+    alert('create a new message')
+}
